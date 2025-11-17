@@ -1,0 +1,5 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+1,,0,0,[Skipped: Initial Transition]
+5,[doorOpen == true],1,1,[doorOpen == true && doorClosed == false]
+10,[after(10;sec)],1,1,[after(10;sec) && doorOpen && !Obstacle]
+10,[after(10;sec)],1,1,[Obstacle == 0 && OpenDoor == 1 && admin == 1 && doorClosed == 0 && doorOpen == 1 && (person_in_1 == 1 || person_in_2 == 1)]

@@ -1,0 +1,9 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+6,Closing;during:;OpenDoor = -1;,1,1,during:;if (~admin && ~person_in_1 && ~person_in_2);    OpenDoor = -1;;end
+6,Closing;during:;OpenDoor = -1;,1,1,during:;if ~admin && ~(person_in_1 || person_in_2) OpenDoor = -1;;else OpenDoor = 0;
+5,Opened;during:;OpenDoor = 0;,1,1,during:;if admin;    OpenDoor = 0;;else;    OpenDoor = 0;;end
+6,Closing;during:;OpenDoor = -1;,1,1,during:;if (~admin && ~(person_in_1 || person_in_2) && !Obstacle);    OpenDoor = -1;;else;    OpenDoor = 0;;end
+6,Closing;during:;OpenDoor = -1;,1,1,during:;if (~admin && (person_in_1 == 0 && person_in_2 == 0));    OpenDoor = -1;;else;    OpenDoor = 0;;end
+5,Opened;during:;OpenDoor = 0;,1,1,during:;if admin;    OpenDoor = 0;;else;    OpenDoor = 0;;end
+5,Opened;during:;OpenDoor = 0;,1,1,during:;OpenDoor = 0;
+5,Opened;during:;OpenDoor = 0;,1,1,during:;if admin == true;    OpenDoor = 0;;else;    OpenDoor = 0;;end

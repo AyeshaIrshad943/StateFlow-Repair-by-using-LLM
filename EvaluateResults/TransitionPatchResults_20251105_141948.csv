@@ -1,0 +1,4 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+4,,0,0,[Skipped: Initial Transition]
+1,,0,0,[Skipped: Initial Transition]
+9,[person_in_1 == true || person_in_2 == true],1,1,[person_in_1 == true && person_in_2 == true]

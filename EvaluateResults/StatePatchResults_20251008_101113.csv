@@ -1,0 +1,9 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+4,Opening;during:;OpenDoor = 1;,1,1,Opening;during:OpenDoor = 1;
+5,Opened;during:;OpenDoor = 0;,1,1,Opened;during:OpenDoor = 0;
+6,Closing;during:;OpenDoor = 1;,1,1,Closing;during:OpenDoor = 1;
+5,Opened;during:;OpenDoor = 0;,1,1,Opened;during:OpenDoor = 0;
+5,Opened;during:;OpenDoor = 0;,1,1,Opened;during:OpenDoor = 0;
+4,Opening;during:;OpenDoor = 1;,1,1,Opening;during:OpenDoor = 0;
+6,Closing;during:;OpenDoor = 1;,1,1,Closing;during:OpenDoor = 1;
+5,Opened;during:;OpenDoor = 0;,1,1,Opened;during:OpenDoor = 0;

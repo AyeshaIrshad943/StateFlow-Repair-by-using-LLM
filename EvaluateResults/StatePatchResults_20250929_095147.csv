@@ -1,0 +1,3 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+5,Opened;during:;OpenDoor = 0;,1,1,entry: OpenDoor = 1;
+5,Opened;during:;OpenDoor = 0;,1,1,entry: OpenDoor = 1;

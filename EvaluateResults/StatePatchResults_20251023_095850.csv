@@ -1,0 +1,7 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+2,CLOSE_NORM;during:;LIGHT = 0;;ALARM = 0;;COLD = 0;,1,1,during:;LIGHT = 1;;ALARM = 0;;COLD = 0;
+4,CLOSE_HOT;during:;COLD = REF-TEMPERATURE;,1,1,during:;COLD = TEMPERATURE - REF;
+4,CLOSE_HOT;during:;COLD = REF-TEMPERATURE;,1,1,during:;COLD = TEMPERATURE - REF;
+2,CLOSE_NORM;during:;LIGHT = 0;;ALARM = 0;;COLD = 0;,1,1,during:;LIGHT = 1;;ALARM = 0;;COLD = 0;
+4,CLOSE_HOT;during:;COLD = REF-TEMPERATURE;,1,1,during:;COLD = TEMPERATURE - REF;
+4,CLOSE_HOT;during:;COLD = REF-TEMPERATURE;,1,1,during:;COLD = TEMPERATURE - REF;

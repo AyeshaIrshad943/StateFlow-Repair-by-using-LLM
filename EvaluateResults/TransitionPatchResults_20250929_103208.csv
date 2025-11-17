@@ -1,0 +1,9 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+5,[doorOpen == true],1,1,[doorClosed == false]
+10,[after(10;sec)],1,1,[after(5;sec)]
+4,Opening;during:;OpenDoor = 1;,1,1,Opening
+4,Opening;during:;OpenDoor = 1;,1,1,Opening
+4,Opening;during:;OpenDoor = 1;,1,1,Opening
+4,Opening;during:;OpenDoor = 1;,1,1,Opening
+4,Opening;during:;OpenDoor = 1;,1,1,Opening
+4,Opening;during:;OpenDoor = 1;,1,1,Opening

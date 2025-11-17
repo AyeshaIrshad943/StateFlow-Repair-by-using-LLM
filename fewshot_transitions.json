@@ -1,0 +1,54 @@
+[
+  {
+    "faulty": "[flag1 == true || flag2 == true]",
+    "patch": "[flag1 == false || flag2 == true]"
+  },
+      {
+    "faulty": "[flag1 == true && flag2 == true]",
+    "patch": "[flag1 == false || flag2 == true]"
+  },
+  {
+    "faulty": "[signalX == true]",
+    "patch": "[signalX == false]"
+  },
+  {
+    "faulty": "[sensorX == 0]",
+    "patch": "[sensorX == 1]"
+  },
+  {
+    "faulty": "[obstacle == true]",
+    "patch": "[obstacle == false]"
+  },
+  {
+    "faulty": "[temp <= refVal]",
+    "patch": "[temp > refVal]"
+  },
+  {
+    "faulty": "[temp > refVal + 2]",
+    "patch": "[temp > refVal + 1]"
+  },
+  {
+    "faulty": "[weight > currentWeight]",
+    "patch": "[weight < currentWeight]"
+  },
+  {
+    "faulty": "[after(5,sec)]",
+    "patch": "[after(10,sec)]"
+},
+  {
+    "faulty": "after(10,sec)",
+    "patch": "after(5,sec)"
+  },
+  {
+    "faulty": " [TEMPERATURE > REF + 2 || TEMPERATURE < REF + 2]",
+    "patch": "[TEMPERATURE > REF + 2]"
+  },
+  {
+    "faulty": " [SPEED > REF + 2]",
+    "patch": "[SPEED > REF + 2][after(10,sec)]"
+  },
+  {
+    "faulty": "[valA == valB]",
+    "patch": "[valA != valB]"
+  }
+]

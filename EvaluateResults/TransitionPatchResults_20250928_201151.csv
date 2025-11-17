@@ -1,0 +1,3 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+1,{oraingoPisua=0;},0,0,[Skipped: Initial Transition]
+8,,1,1,[pisua > 0]

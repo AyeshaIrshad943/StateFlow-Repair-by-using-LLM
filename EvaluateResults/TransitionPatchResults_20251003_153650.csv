@@ -1,0 +1,3 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+1,,0,0,[Skipped: Initial Transition]
+5,[doorOpen == true],1,1,[doorOpen == 1]

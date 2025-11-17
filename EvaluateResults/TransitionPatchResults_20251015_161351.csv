@@ -1,0 +1,10 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+7,[after(1;sec)],1,1,[after(2;sec)]
+7,[after(1;sec)],1,1,[after(2;sec)]
+7,[after(1;sec)],1,1,[after(2;sec)]
+7,[after(1;sec)],1,1,[after(2;sec)]
+7,[after(1;sec)],1,1,[after(2;sec)]
+2,,0,0,[Skipped: Initial Transition]
+8,[TEMPERATURE > REF + 2],1,1,[TEMPERATURE > REF + 1]
+2,,0,0,[Skipped: Initial Transition]
+8,[TEMPERATURE > REF + 2],1,1,[TEMPERATURE <= REF + 2]
