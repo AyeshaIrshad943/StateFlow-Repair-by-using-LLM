@@ -1,4 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-5,Opened;during:;OpenDoor = 0;,1,1,Opened;during:;OpenDoor = 1;
-5,Opened;during:;OpenDoor = 0;,1,1,Opened;during:;OpenDoor = 1;
-6,Closing;during:;OpenDoor = 1;,1,1,Closing;during:;OpenDoor = 0;

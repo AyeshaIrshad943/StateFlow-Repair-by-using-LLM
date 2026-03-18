@@ -20,8 +20,12 @@
     "patch": "[obstacle == false]"
   },
   {
-    "faulty": "[temp <= refVal]",
-    "patch": "[temp > refVal]"
+    "faulty": "[temp == refVal]",
+    "patch": "[temp >= refVal]"
+  },
+{
+    "faulty": "[temp == refVal]",
+    "patch": "[temp <= refVal]"
   },
   {
     "faulty": "[temp > refVal + 2]",
@@ -33,19 +37,23 @@
   },
   {
     "faulty": "[after(5,sec)]",
-    "patch": "[after(10,sec)]"
+    "patch": "after(10,sec)"
 },
   {
     "faulty": "after(10,sec)",
     "patch": "after(5,sec)"
   },
+   {
+    "faulty": "after(10,sec)",
+    "patch": ""
+  },
   {
-    "faulty": " [TEMPERATURE > REF + 2 || TEMPERATURE < REF + 2]",
-    "patch": "[TEMPERATURE > REF + 2]"
+    "faulty": " [TEMPERATURE > REF + 1 || TEMPERATURE < REF + 1]",
+    "patch": "[TEMPERATURE > REF + 1]"
   },
   {
     "faulty": " [SPEED > REF + 2]",
-    "patch": "[SPEED > REF + 2][after(10,sec)]"
+    "patch": "[SPEED > REF + 2]after(10,sec)"
   },
   {
     "faulty": "[valA == valB]",

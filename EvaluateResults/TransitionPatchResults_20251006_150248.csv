@@ -1,6 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-5,[doorOpen == true],1,1,[doorOpen == false]
-10,[after(10;sec)],1,1,[after(5;sec)]
-5,[doorOpen == true],1,1,[doorOpen == false]
-10,[after(10;sec)],1,1,[after(5;sec)]
-5,[doorOpen == true],1,1,[doorOpen == false]

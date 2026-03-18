@@ -8,15 +8,7 @@ addpath(genpath(pwd));
 
 resultsDir = 'Results';  % folder to store outputs
 
-%modelDir = 'ModelsWithRealFaults\elevator_2';
-%modelDir = 'ModelsWithRealFaults\elevator_4';
-%modelDir = 'ModelsWithRealFaults\elevator_4';
-%modelDir = 'ModelsWithRealFaults\elevator_2';
-%modelDir = 'ModelsWithRealFaults\fridge_3';
-%modelDir = 'ModelsWithRealFaults\fridge_3';
-%modelDir = 'ModelsWithRealFaults\door_1';
 modelDir = 'ModelsWithRealFaults\door_2';
-%modelDir = 'ModelsWithRealFaults\state_machine3';
 
 if isfolder(resultsDir), addpath(resultsDir); end         %if both folders exist add to matlab path
 if isfolder(modelDir), addpath(modelDir); end
@@ -212,39 +204,6 @@ end
 
 stateLogger.saveLogs('StatePatchResults');             %saving results in csv
 transitionLogger.saveLogs('TransitionPatchResults');
-
-%filename=strcat(current_Path,"/PlausiblePatches.txt");
-% filename = "PlausiblePatches.txt";
-%     file_id=fopen(filename,'w');
-%     for i =1:length(PlausiblePatches)
-%        fprintf(file_id, '%s', PlausiblePatches(i)); 
-%        fprintf(file_id, '\n'); 
-% 
-%     end
-%     fclose(file_id);
-
-% filename = "PlausiblePatches.txt";
-% 
-% file_id = fopen(filename, 'w');
-% for i = 1:length(PlausiblePatches)
-%     fprintf(file_id, '%s\n', PlausiblePatches(i));
-% end
-% fclose(file_id);
-
-
-%executeTest = @executeTestDoor;
-%executeTest = @executeTestElevator
-%executeTest = @executeTestFridge
-%executeTest = @executeTestStateMachine
-
-%validatePatchesWithOriginalModel(nonFaultyModel, ValidatedPatches, validatedDir, executeTest); %validate with orignal model
-
-% function Archive = clearArchive(Archive)
-%     maxSize = 10;
-%     if length(Archive) > maxSize
-%         Archive = Archive(1:maxSize);
-%     end
-% end
 
 function Archive = clearArchive(Archive)
     %TODO -> Implement function

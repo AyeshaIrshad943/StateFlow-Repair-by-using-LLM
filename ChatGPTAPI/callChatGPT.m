@@ -6,7 +6,6 @@ function responseText = callChatGPT(prompt)
         error('API key not found. Please check your .env file.');
     end
 
-
     url = 'https://api.openai.com/v1/chat/completions'; %responses for gpt-5
 
     headers = {

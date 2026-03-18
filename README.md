@@ -6,7 +6,8 @@ The package is structured as follows:
 
 1. \[ChatGPTAPI] contains script for calling chatgpt
 2. \[LLMPatch] has LLMPatchstate.m for performing mutations on states and LLMPatchTransition.m for performing mutations on transitions
-3. [Models With Real Faults](/ModelsWithRealFaults) contains the test cases used in our evaluation.
+3. \[ModelsWithRealFaults] contains the test cases used in our evaluation.
+4. \[Mutators] has FlowRepair mutation operators.
 
 
 
@@ -14,7 +15,7 @@ The package is structured as follows:
 
 Matlab 2024a with Simulink and Stateflow packages is required.\_
 
-->For main Run Replication\_main\_RepairAlgorithm\_LLM.m
+\->For main Run Replication\_main\_RepairAlgorithm\_LLM.m
 ->Results will be saved in Results folder.
 
 .

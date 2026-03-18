@@ -35,7 +35,8 @@ function LLMBasedGlobalLocalAlgorithm(seed,faultyModel, nonFaultyModel, executeT
     numsOfPlausiblePatches = 0;
     plausiblePatchFound = false;
     
-    timeBudget = 60*60; %1 hour
+    %timeBudget = 60*60; %1 hour
+    timeBudget = 60*10; %1 hour
     tic;
     PlausiblePatches=[""];
     
@@ -59,28 +60,6 @@ function LLMBasedGlobalLocalAlgorithm(seed,faultyModel, nonFaultyModel, executeT
             copyfile(strcat(baseFaultyModel, '.slx'), strcat(newModelName, '.slx')); 
             open_system(strcat(newModelName, '.slx'));
             done = false;
-
-            %Uncoment for ELlement Selection limit/Avoids repeated element
-            %selection
-
-            % triedStates = [];
-            % triedTransitions = [];
-            % 
-            % while done == false
-            %     [done, statesOrTransitions, stateNum, transNum, triedStates, triedTransitions] = ...  %, triedStates, triedTransitions
-            %     applyGlobalMutations(suspiciousness_transitions, suspiciousness_states, ...
-            %                          timeBudget, stateLogger, transitionLogger, triedStates, triedTransitions);
-            %                                                       % triedStates, triedTransitions
-            %      if done
-            %          break;
-            %      end
-            %     if length(triedStates) >= length(suspiciousness_states) && ...
-            %        length(triedTransitions) >= length(suspiciousness_transitions)
-            %         disp("All states and transitions attempted. Exiting loop.");
-            %         break;
-            %     end
-            % end
-            %without selection limit/
             
             while done == false
                 [done, statesOrTransitions, stateNum, transNum] = ...  %, triedStates, triedTransitions
@@ -221,5 +200,3 @@ end
 function Archive = clearArchive(Archive)
     Archive = Archive;
 end
-
-

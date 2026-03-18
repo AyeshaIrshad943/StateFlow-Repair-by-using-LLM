@@ -1,4 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-4,,0,0,[Skipped: Initial Transition]
-6,[person_in_1==true || person_in_2==true ],0,0,
-10,[after(10;sec)],1,1,[after(5;sec)]
