@@ -1,3 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-3,[admin == true],1,1,[admin == false]
-6,[person_in_1==true || person_in_2==true ],1,1,[person_in_1==true && person_in_2==true]

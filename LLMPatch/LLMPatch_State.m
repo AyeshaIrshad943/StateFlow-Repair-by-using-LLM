@@ -1,4 +1,3 @@
-
 function done = LLMPatch_State(state, rt, stateIndex, logger)
 
     done = false;
@@ -26,7 +25,6 @@ function done = LLMPatch_State(state, rt, stateIndex, logger)
         '- Constants: %s\n'], ...
         inputNames, outputNames, localNames, paramNames, constNames);
 
-
     try
         fewshotExamples = fileread("fewshot_states.json");
         fewshotExamples = sprintf('--- Illustrative Examples (for guidance only, do not copy directly) ---\n%s\n--- End of Examples ---', fewshotExamples);
@@ -43,7 +41,7 @@ function done = LLMPatch_State(state, rt, stateIndex, logger)
         'Current label:\n"%s"\n', ...
         'Available variables (use ONLY these, do not invent new ones):\n%s\n\n', ...
         '--- Repair Instructions ---\n', ...
-        '1. If the label contains (entry:/during:/exit:) preserve them butyou can replace them or can keep the same as in given label.\n', ...
+        '1. If the label contains (entry:/during:/exit:) preserve them but you can replace them or can keep the same as in given label.\n', ...
         '2. Examples of mutations include, but are not limited to these:\n', ...
         '   - Replace wrong numeric values (1 <-> -1, 10 <-> 15 etc).\n', ...
         '   - Replace wrong boolean values (true <-> false) (0 <-> 1).\n', ...
@@ -61,9 +59,6 @@ function done = LLMPatch_State(state, rt, stateIndex, logger)
 
     prompt = sprintf(promptTemplate, char(state.Name), originalLabel, variableContext, fewshotExamples);
 
-    % prompt = sprintf("\n%s", variableContext, ...
-    %     sprintf(promptTemplate, char(state.Name), originalLabel, variableContext, fewshotExamples));
-
     try
         fprintf('\nState %d: "%s"\n', stateIndex, originalLabel);
         gptResponse = callChatGPT(prompt);
@@ -74,28 +69,25 @@ function done = LLMPatch_State(state, rt, stateIndex, logger)
             newAction = strrep(newAction, '\n', newline);
             newAction = strrep(newAction, '\t', '    ');
 
-        % newAction = regexprep(newAction, '^[A-Za-z0-9_]+\s*[\r\n]+', '');   %remove any extra info in the label from begininng
-        % newAction = strtrim(newAction);
-        % 
-        newLabelFull = newAction;
+            if contains(lower(newAction), 'during:') || ...
+               contains(lower(newAction), 'entry:')  || ...
+               contains(lower(newAction), 'exit:')
+                newLabelFull = newAction;
+            else
+                if contains(originalLabel, 'during:')
+                    newLabelFull = regexprep(originalLabel, '(?<=during:\s*)(.*?);', newAction, 'once');
+                elseif contains(originalLabel, 'entry:')
+                    newLabelFull = regexprep(originalLabel, '(?<=entry:\s*)(.*?);', newAction, 'once');
+                elseif contains(originalLabel, 'exit:')
+                    newLabelFull = regexprep(originalLabel, '(?<=exit:\s*)(.*?);', newAction, 'once');
+                else
+                    newLabelFull = newAction;
+                end
+            end
 
-        % if contains(lower(newAction), 'during:') || contains(lower(newAction), 'entry:') || contains(lower(newAction), 'exit:')
-        %     fprintf('LLM returned a structured full label, applying directly.\n');
-        %     newLabelFull = newAction;
-        % 
-        % else   %if LLM returned only the inner action not a fully structured patch
-        %     if contains(originalLabel, 'during:')
-        %         newLabelFull = regexprep(originalLabel, '(?<=during:\s*)(.*?);', newAction, 'once');
-        %     elseif contains(originalLabel, 'entry:')
-        %         newLabelFull = regexprep(originalLabel, '(?<=entry:\s*)(.*?);', newAction, 'once');
-        %     elseif contains(originalLabel, 'exit:')
-        %         newLabelFull = regexprep(originalLabel, '(?<=exit:\s*)(.*?);', newAction, 'once');
-        %     else
-        % 
-        %         newLabelFull = newAction;  %fallback if no section header in original label
-        %     end
-        % end
-
+            if ~startsWith(strtrim(newLabelFull), char(state.Name))
+                newLabelFull = char(state.Name) + newline + newLabelFull;
+            end
 
             if isempty(newLabelFull) || ...
                count(newLabelFull, '(') ~= count(newLabelFull, ')') || ...
@@ -117,7 +109,6 @@ function done = LLMPatch_State(state, rt, stateIndex, logger)
                 logger.log(stateIndex, originalLabel, false, false, "");
             end
 
-
         else
             fprintf('LLM did not detect a Fault \n');
             logger.log(stateIndex, originalLabel, false, false, "");
@@ -125,9 +116,7 @@ function done = LLMPatch_State(state, rt, stateIndex, logger)
 
     catch ME
         disp('GPT call or patch application failed.');
-       % disp(getReport(ME));
         logger.log(stateIndex, originalLabel, false, false, "");
     end
 end
-
 

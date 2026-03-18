@@ -1,6 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-5,Opened;during:;OpenDoor = 0;,1,1,during:;OpenDoor = 0;
-1,ShouldBeClosed;during:;OpenDoor = 0;,1,1,during:;OpenDoor = -1;
-5,Opened;during:;OpenDoor = 0;,1,1,during:;if admin;    OpenDoor = 0;;else;    OpenDoor = 0;;end
-4,Opening;during:;OpenDoor = 1;,1,1,during:;OpenDoor = 1;
-1,ShouldBeClosed;during:;OpenDoor = 0;,1,1,during:;OpenDoor = -1;

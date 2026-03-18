@@ -4,6 +4,18 @@
     "patch": "flag1 = 1;"
   },
   {
+    "faulty": "flag1 = valb - vala;",
+    "patch": "flag1 = 1;"
+  },
+   {
+    "faulty": "flag1 = valb * 2;",
+    "patch": "flag1 = valb + 2;"
+  },
+    {
+    "faulty": "flag1 = valb * 2;",
+    "patch": "flag1 = valb + 2;  falg2 = 5; "
+  },
+  {
     "faulty": "flag1 = True;",
     "patch": "flag1 = False;"
   },

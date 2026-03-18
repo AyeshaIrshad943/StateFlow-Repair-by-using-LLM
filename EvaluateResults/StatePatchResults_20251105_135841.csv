@@ -1,9 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-4,Opening;during:;OpenDoor = 1;,1,1,during:;OpenDoor = 0;
-1,ShouldBeClosed;during:;OpenDoor = 0;,1,1,during:;OpenDoor = 0;
-1,ShouldBeClosed;during:;OpenDoor = 0;,1,1,during:;OpenDoor = 0;
-1,ShouldBeClosed;during:;OpenDoor = 0;,1,1,during:;OpenDoor = 0;
-4,Opening;during:;OpenDoor = 1;,1,1,during:;OpenDoor = 0;
-4,Opening;during:;OpenDoor = 1;,1,1,during:;OpenDoor = 0;
-2,ShouldBeOpened,1,1,doorClosed == 1 && (person_in_1 == 1 || person_in_2 == 1) && admin == 1 && Obstacle == 0
-1,ShouldBeClosed;during:;OpenDoor = 0;,1,1,during:;OpenDoor = 1;

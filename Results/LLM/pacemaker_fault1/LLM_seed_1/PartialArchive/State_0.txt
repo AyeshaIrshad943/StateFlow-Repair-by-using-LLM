@@ -1,3 +1,0 @@
-Results/LLM/pacemaker_fault1/LLM_seed_1/Model1_Scenario2_Faulty_2020a_3.slx
-Results/LLM/pacemaker_fault1/LLM_seed_1/Model1_Scenario2_Faulty_2020a_6.slx
-Results/LLM/pacemaker_fault1/LLM_seed_1/Model1_Scenario2_Faulty_2020a_94.slx

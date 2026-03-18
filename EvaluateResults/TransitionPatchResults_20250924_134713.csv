@@ -1,9 +1,0 @@
-Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
-5,[doorOpen == true],1,1,[doorClosed == false]
-10,[after(10;sec)],1,1,[after(5;sec)]
-5,[doorOpen == true],1,1,[doorClosed == false]
-10,[after(10;sec)],1,1,[after(5;sec)]
-5,[doorOpen == true],1,1,[doorClosed == false]
-4,,0,0,[Skipped: Initial Transition]
-9,[person_in_1 ==true || person_in_2 == true],1,1,[person_in_1 == true || person_in_2 == true] && !admin
-5,[doorOpen == true],0,0,

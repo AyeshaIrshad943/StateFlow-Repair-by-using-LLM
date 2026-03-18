@@ -1,4 +1,3 @@
-%Origninal one
 function [done, statesOrTransitions, stateNum, transNum] = ...  
     applyGlobalMutations(suspiciousness_transitions, suspiciousness_states, timeBudget, ...
                          stateLogger, transitionLogger) %, triedStates, triedTransitions
@@ -19,18 +18,11 @@ function [done, statesOrTransitions, stateNum, transNum] = ...
     states = rt.find('-isa', 'Stateflow.State');
     transitions = rt.find('-isa', 'Stateflow.Transition');
 
-    % if length(triedStates) >= length(states) && length(triedTransitions) >= length(transitions)
-    %     done = true;
-    %     return;
-    % end
 
     statesOrTransitions = randi([1, 2]);
 
     if statesOrTransitions == 1 && ~isempty(states)
         stateNum = rouletteWheelSelection(suspiciousness_states);
-        % if ismember(stateNum, triedStates)
-        %     return;
-        % end
 
         state = states(stateNum);
   %      triedStates = [triedStates, stateNum];
@@ -90,14 +82,14 @@ function [done, statesOrTransitions, stateNum, transNum] = ...
                     % disp("delete Transition: \n")
                     done = deleteTransition(transition);
                 case 2
-                    % disp("replace Initial transition: \n")
-                    done = replaceInitialTransition(transitions, states);
+                    % disp("replacement Of Transition Source: \n")
+                    done = replacementOfTransitionSource(transition, states);
                 case 3
                     % disp("replacement Of Transition Destination: \n")
                     done = replacementOfTransitionDestination(transition, states);
                 case 4
-                   % disp("replacement Of Transition Source: \n")
-                    done = replacementOfTransitionSource(transition, states);
+                    % disp("replace Initial transition: \n")
+                    done = replaceInitialTransition(transitions, states);
             end
         catch ME
             warning("Problem during transition mutation: %s", ME.message);

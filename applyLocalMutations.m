@@ -56,20 +56,20 @@ function done = applyLocalMutations(statesOrTransitions, stateNum, transNum, sta
             end
 
             try
-                selectedOperator = randi([1, 5]);
+                selectedOperator = randi([1, 4]);
                 switch selectedOperator
                     case 1
                        %  disp("Deleting Transition : \n")
                         done = deleteTransition(transition);
                     case 2
-                       %  disp("replace Initial Transition: \n")
-                        done = replaceInitialTransition(transitions, states);
+                    %  disp("replacement Of Transition Source: \n")
+                        done = replacementOfTransitionSource(transition, states);
                     case 3
                        %  disp("replacement Of Transition Destination: \n")
                         done = replacementOfTransitionDestination(transition, states);
                     case 4
-                       %  disp("replacement Of Transition Source: \n")
-                        done = replacementOfTransitionSource(transition, states);
+                           %  disp("replace Initial Transition: \n")
+                        done = replaceInitialTransition(transitions, states);
                 end
             catch ME
                 warning("Problem during transition mutation: %s", ME.message);

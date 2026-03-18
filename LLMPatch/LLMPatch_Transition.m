@@ -34,8 +34,9 @@ function done = LLMPatch_Transition(transition, rt, transitionIndex, logger)
         fewshotExamples = '';
     end
 
+
     promptTemplate = strjoin({
-        'You are a Stateflow Repair Assistant. Your task is to examine the condition labels of transitions in a Stateflow model.',...
+         'You are a Stateflow Repair Assistant. Your task is to examine the condition labels of transitions in a Stateflow model.',...
         ' Always provide a possible mutation because the transition is highly likely to be buggy.'... 
         '--- Context ---\n', ...
         'Transition ID: "%s"\n', ...
@@ -69,13 +70,6 @@ function done = LLMPatch_Transition(transition, rt, transitionIndex, logger)
    
 
         prompt = sprintf(promptTemplate, char(transition.Id), originalLabel, variableContext, fewshotExamples);
-
-
-    % prompt = sprintf("%s\n%s", variableContext, ...
-    % %     sprintf(promptTemplate,functionalContext, char(transition.Id), originalLabel, variableContext, fewshotExamples));
-    % promptBody = sprintf(promptTemplate, char(transition.Id), originalLabel, variableContext,fewshotExamples);   
-    % prompt = sprintf("\n%s", promptBody);
-    
 
     try
         fprintf('\nTransition. %d: "%s"\n', transitionIndex, originalLabel);
