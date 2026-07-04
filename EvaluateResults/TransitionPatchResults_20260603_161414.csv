@@ -1,0 +1,5 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+2,,0,0,[Skipped: Initial Transition]
+8,[TEMPERATURE > REF + 2 || TEMPERATURE < REF + 2],0,0,
+2,,0,0,[Skipped: Initial Transition]
+2,,0,0,[Skipped: Initial Transition]

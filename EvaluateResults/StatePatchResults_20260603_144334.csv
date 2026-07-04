@@ -1,0 +1,5 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+4,CLOSE_HOT;during:;COLD = 1;,1,1,CLOSE_HOT;during:;COLD = 0;
+4,CLOSE_HOT;during:;COLD = 1;,1,1,CLOSE_HOT;during:;COLD = 0;
+4,CLOSE_HOT;during:;COLD = 1;,1,1,CLOSE_HOT;during:;COLD = 0;
+4,CLOSE_HOT;during:;COLD = 1;,1,1,CLOSE_HOT;during:;COLD = 0;

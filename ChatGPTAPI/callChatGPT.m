@@ -1,4 +1,4 @@
-function responseText = callChatGPT(prompt)
+function responseText = callChatGPT(prompt) 
    
    loadEnv();
     apiKey = getenv('OPENAI_API_KEY');
@@ -6,20 +6,36 @@ function responseText = callChatGPT(prompt)
         error('API key not found. Please check your .env file.');
     end
 
-    url = 'https://api.openai.com/v1/chat/completions'; %responses for gpt-5
-
+    %  url = 'https://api.openai.com/v1/chat/completions';
+    url = 'https://api.openai.com/v1/responses'; 
+    
     headers = {
         'Authorization', ['Bearer ' apiKey];
         'Content-Type', 'application/json'
     };
 
-    data = struct;
-   % data.model = 'gpt-4'; %gpt-4o-mini, gpt-4o, gpt-4-turbo, gpt-4.1-mini
-    data.model = 'gpt-4.1-mini';
+  % data = struct;
+  % data.model = 'gpt-5.4-mini'; % 'gpt-4.1-mini';
+  % data.temperature = 0.8; % for gpt 4.1 mini and 5.1 mini
+   %data.top_p = 0.9;
 
-    data.temperature = 0.8;
-    %data.top_p = 0.9;
-    data.messages = {
+
+   data.model = 'gpt-5.5';
+   data.input = prompt;
+   %data.reasoning = struct('effort', 'low'); %for GPT 5.5
+   data.reasoning = struct('effort','none');
+   data.text = struct('verbosity','low');
+   data.temperature = 0.8;
+
+
+    % for Chat completions
+    % data.messages = {
+    %     struct('role', 'system', 'content', 'You are a helpful AI repairing Stateflow models.'), ...
+    %     struct('role', 'user', 'content', prompt)
+    % };
+
+    %for responses API
+    data.input = {
         struct('role', 'system', 'content', 'You are a helpful AI repairing Stateflow models.'), ...
         struct('role', 'user', 'content', prompt)
     };
@@ -36,9 +52,37 @@ function responseText = callChatGPT(prompt)
 
         rawResponse = webwrite(url, data, options);
 
-        if isstruct(rawResponse) && isfield(rawResponse, 'choices') && ...
-           isstruct(rawResponse.choices) && isfield(rawResponse.choices(1), 'message')
-            responseText = strtrim(rawResponse.choices(1).message.content);
+        %for Chat completions:
+        % if isstruct(rawResponse) && isfield(rawResponse, 'choices') && ...
+        %    isstruct(rawResponse.choices) && isfield(rawResponse.choices(1), 'message')
+        %     responseText = strtrim(rawResponse.choices(1).message.content);
+        %     responseText = strrep(responseText, newline, '');
+        %     responseText = strtrim(responseText);
+        % 
+        %     disp('GPT Response :');
+        %     disp(responseText);
+        %     disp('------------------------');
+        % else
+        %     disp('Unexpected response format.');
+        %     disp(rawResponse);
+        %     responseText = '';
+        % end
+
+        % for responses API
+        if isstruct(rawResponse) && isfield(rawResponse, 'output')
+            responseText = '';
+
+            for i = 1:numel(rawResponse.output)
+                if isfield(rawResponse.output(i), 'content')
+                    for j = 1:numel(rawResponse.output(i).content)
+                        if isfield(rawResponse.output(i).content(j), 'text')
+                            responseText = [responseText rawResponse.output(i).content(j).text];
+                        end
+                    end
+                end
+            end
+
+            responseText = strtrim(responseText);
             responseText = strrep(responseText, newline, '');
             responseText = strtrim(responseText);
 
@@ -57,4 +101,3 @@ function responseText = callChatGPT(prompt)
         responseText = '';
     end
 end 
-

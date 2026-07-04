@@ -36,7 +36,7 @@ function LLMBasedGlobalLocalAlgorithm(seed,faultyModel, nonFaultyModel, executeT
     plausiblePatchFound = false;
     
     %timeBudget = 60*60; %1 hour
-    timeBudget = 60*10; %1 hour
+    timeBudget = 60*60; %1 hour
     tic;
     PlausiblePatches=[""];
     
