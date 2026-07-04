@@ -1,0 +1,5 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+12,[pisua==oraingoPisua],1,1,[pisua!=oraingoPisua]
+12,[pisua==oraingoPisua],1,1,[pisua!=oraingoPisua]
+8,,1,1,[pisua > oraingoPisua]
+12,[pisua==oraingoPisua],1,1,[pisua!=oraingoPisua]

@@ -1,0 +1,3 @@
+Index,OriginalLabel,FaultDetected,ValidPatch,ProposedPatch
+3,[admin == true],1,1,[admin == false]
+1,,0,0,[Skipped: Initial Transition]
